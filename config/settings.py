@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     # 'debug_toolbar',
-    'admin_honeypot',
+    # 'admin_honeypot',
 
     # local
     'accounts',
@@ -78,7 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -158,6 +158,7 @@ STATICFILES_FINDERS = [
 ]
 # whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
@@ -192,4 +193,4 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))  # absolute file system path to the
 # INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 
 # setting heroku
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

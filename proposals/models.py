@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 CustomUser = get_user_model()
@@ -31,6 +32,9 @@ class Proposal(models.Model):
 
     def __str__(self):
         return f'Proposal {self.mahasiswa}'
+
+    def get_absolute_url(self):
+        return reverse('proposal_detail', args=(self.id,))
 
 
 class Status(models.Model):

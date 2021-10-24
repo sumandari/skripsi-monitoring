@@ -20,7 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     # fake-admin
-    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    # path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     # django admin
     path('this-is-admin-page/', admin.site.urls),
 
@@ -29,6 +29,7 @@ urlpatterns = [
 
     # local app
     path('', include('pages.urls')),
+    path('proposal/', include('proposals.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # if settings.DEBUG:

@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block title %}Proposal Skripsi{% endblock title %}
+
+{% block content %}
+  <h1>Proposal Skripsi</h1>
+  <ul>
+    <li>Judul: {{ object.judul }}</li>
+    <li>Pemohon: {{ object.mahasiswa.first_name }} {{ object.mahasiswa.last_name }}</li>
+    <li>Status:
+      <ul>
+        {% for stat in object.status_set.all %}
+          <li>{{ stat.status }}</li>
+          <li>{{ stat.timestamp }}</li>
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+
+{% endblock %}
